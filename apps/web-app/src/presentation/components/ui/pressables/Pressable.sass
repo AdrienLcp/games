@@ -1,0 +1,163 @@
+@use '@/presentation/styles/accessibility'
+@use '@/presentation/styles/animations'
+@use '@/presentation/styles/colors'
+@use '@/presentation/styles/selectors'
+@use '@/presentation/styles/sizes'
+@use '@/presentation/styles/typography'
+
+@mixin common-pressable
+  --pressable-icon-size: var(--element-icon-size, 1rem)
+
+  &
+    @include animations.color-transition
+
+  &
+    @include accessibility.focus-outline
+
+  &
+    align-items: center
+    cursor: pointer
+    border-radius: var(--radius-s, 0.25rem)
+    display: flex
+    gap: var(--size-80, 0.5rem)
+    max-width: 100%
+
+  & .pressable-icon
+    @include sizes.square(var(--pressable-icon-size))
+
+  & .pressable-content
+    @include typography.label-large
+
+    &
+      @include typography.text-ellipsis
+
+  &.small
+    gap: var(--size-60, 0.375rem)
+
+    & .pressable-content
+      @include typography.label-small
+
+    & .pressable-icon
+      --pressable-icon-size: var(--size-120, 0.75rem)
+
+      &
+        @include sizes.square(var(--pressable-icon-size))
+
+  &.icon-right
+    flex-direction: row-reverse
+
+  &.icon-size
+    aspect-ratio: 1
+    justify-content: center
+    padding-inline: unset
+
+  @include selectors.pending
+    opacity: var(--alpha-l, 0.64)
+
+  &:disabled:not([data-rac]),
+  &[data-disabled],
+  &[data-pending]
+    pointer-events: none
+
+@mixin common-button
+  @include common-pressable
+
+  &
+    border-radius: var(--radius-m, 0.5rem)
+    height: var(--element-size, 2.5rem)
+    padding-inline: var(--size-160, 1rem)
+    width: fit-content
+
+  &.icon-left
+    padding-inline: var(--size-140, 0.875rem) var(--size-200, 1.25rem)
+
+  &.icon-right
+    padding-inline: var(--size-200, 1.25rem) var(--size-140, 0.875rem)
+
+  &.small
+    height: var(--size-280, 1.75rem)
+    padding-inline: var(--size-120, 0.75rem)
+
+    &.icon-left
+      padding-inline: var(--size-100, 0.625rem) var(--size-140, 0.875rem)
+
+    &.icon-right
+      padding-inline: var(--size-140, 0.875rem) var(--size-100, 0.625rem)
+
+  &.icon-size
+    aspect-ratio: 1
+    justify-content: center
+    padding-inline: unset
+
+.pressable
+  &.filled
+    @include common-button
+
+    &
+      background-color: var(--brand-background-primary)
+      color: var(--brand-foreground-on-brand)
+
+    @include selectors.hovered
+      background-color: colors.fade(var(--brand-background-primary), var(--alpha-2xl))
+
+    @include selectors.pressed
+      background-color: colors.fade(var(--brand-background-primary), var(--alpha-xl))
+
+    @include selectors.disabled
+      background-color: var(--neutral-background-muted)
+      color: var(--neutral-foreground-muted)
+
+  &.outlined
+    @include common-button
+
+    &
+      background-color: transparent
+      border: var(--element-stroke, 0.125rem) solid var(--border)
+      border-radius: var(--radius-m, 0.5rem)
+
+    @include selectors.hovered
+      background-color: var(--border)
+
+    @include selectors.pressed
+      background-color: colors.fade(var(--border), var(--alpha-2xl, 0.88))
+      border-color: colors.fade(var(--border), var(--alpha-2xl, 0.88))
+
+    @include selectors.disabled
+      background-color: transparent
+      border-color: var(--neutral-background-muted)
+      color: var(--neutral-foreground-muted)
+
+  &.transparent
+    @include common-button
+
+    &
+      background-color: transparent
+
+    @include selectors.hovered
+      background-color: colors.fade(var(--neutral-background-inverted), var(--alpha-2xs, 0.12))
+
+    @include selectors.pressed
+      background-color: colors.fade(var(--neutral-background-inverted), var(--alpha-xs, 0.24))
+
+    @include selectors.disabled
+      background-color: transparent
+      color: var(--neutral-foreground-muted)
+
+  &.underlined
+    @include common-pressable
+
+    &
+      color: var(--brand-foreground-primary)
+      text-decoration-thickness: var(--stroke-m, 0.125rem)
+      text-underline-offset: var(--size-20, 0.125rem)
+
+    @include selectors.hovered
+      text-decoration: underline
+
+    @include selectors.pressed
+      color: colors.fade(var(--brand-foreground-primary), var(--alpha-2xl))
+      text-decoration: underline
+
+    @include selectors.disabled
+      color: var(--neutral-foreground-muted)
+      pointer-events: none

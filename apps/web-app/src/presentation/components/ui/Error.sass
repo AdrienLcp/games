@@ -1,0 +1,27 @@
+@use '@/presentation/styles/layout'
+@use '@/presentation/styles/typography'
+
+.error
+  &-wrapper
+    @include layout.center
+    display: grid
+    gap: var(--size-160, 1rem)
+
+  &-title
+    @include typography.headline-large
+    text-align: center
+
+  &-content
+    @include typography.body-large
+    align-items: center
+    display: flex
+    flex-direction: column
+    gap: var(--size-160, 1rem)
+    text-align: center
+
+  &-actions
+    align-items: center
+    display: flex
+    flex-wrap: wrap
+    gap: var(--size-120, 0.75rem)
+    justify-content: center

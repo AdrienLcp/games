@@ -7,6 +7,7 @@ import tseslint from 'typescript-eslint'
 import baseConfig from '../../eslint.config.js'
 
 export default tseslint.config(
+  { ignores: ['**/dist', '**/polyglot.js'] },
   {
     extends: baseConfig,
     plugins: {

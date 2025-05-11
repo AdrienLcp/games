@@ -7,7 +7,7 @@ import tseslint from 'typescript-eslint'
 export default tseslint.config(
   ...tseslint.configs.strict,
   ...tseslint.configs.stylistic,
-  { ignores: ['**/dist', '**/polyglot.js', 'apps/web-app/**'] },
+  { ignores: ['apps/web-app/**'] },
   {
     extends: [
       js.configs.recommended,

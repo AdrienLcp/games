@@ -1,0 +1,10 @@
+{
+  "appName": "Games",
+  "components": {
+    "fallback": {
+      "message": "Une erreur est survenue, veuillez réessayer.",
+      "title": "Erreur",
+      "reload": "Reload"
+    }
+  }
+}
