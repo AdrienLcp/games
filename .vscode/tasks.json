@@ -1,0 +1,25 @@
+{
+  "tasks": [
+    {
+      "command": "pnpm dev",
+      "label": "Start development server",
+      "presentation": {
+        "group": "develop",
+        "panel": "new",
+        "reveal": "always"
+      },
+      "type": "shell"
+    },
+    {
+      "command": "pnpm lint",
+      "label": "Run linter",
+      "presentation": {
+        "group": "develop",
+        "panel": "new",
+        "reveal": "always"
+      },
+      "type": "shell"
+    }
+  ],
+  "version": "2.0.0"
+}

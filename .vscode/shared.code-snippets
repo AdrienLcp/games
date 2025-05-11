@@ -1,0 +1,23 @@
+{
+	"React component": {
+		"body": [
+			"import type { FC } from 'react'",
+			"",
+			"import './${TM_FILENAME_BASE}.styles.sass'",
+			"",
+			"type ${TM_FILENAME_BASE}Props = {",
+			"",
+			"}",
+			"",
+			"export const ${TM_FILENAME_BASE}: FC<${TM_FILENAME_BASE}Props> = () => {",
+			"  return (",
+			"    $0",
+			"  )",
+			"}",
+			""
+		],
+		"description": "Create typescript React component named with file name",
+		"prefix": "comp",
+		"scope": "typescriptreact"
+	}
+}
