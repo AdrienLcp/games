@@ -20,7 +20,11 @@
   --size-400: clamp(2.5rem, 1.5rem + 2vw, 2.8rem)
   --size-440: clamp(2.75rem, 1.65rem + 2.2vw, 3.08rem)
   --size-480: clamp(3rem, 1.8rem + 2.5vw, 3.36rem)
-  --size-580: clamp(3.625rem, 2.25rem + 3vw, 4.2rem)
+  --size-520: clamp(3.625rem, 2.25rem + 3vw, 4.2rem)
+  --size-640: clamp(4.25rem, 2.75rem + 3.5vw, 4.96rem)
+  --size-760: clamp(4.875rem, 3.25rem + 4vw, 5.72rem)
+  --size-880: clamp(5.5rem, 3.75rem + 4.5vw, 6.48rem)
+  --size-1000: clamp(6.125rem, 4.25rem + 5vw, 7.24rem)
 
   --radius-xs: 0.125rem
   --radius-s: 0.25rem
@@ -42,8 +46,12 @@
 @mixin square($size: 1rem)
   aspect-ratio: 1
   height: $size
+  max-block-size: $size
   max-height: $size
+  max-inline-size: $size
   max-width: $size
+  min-block-size: $size
   min-height: $size
+  min-inline-size: $size
   min-width: $size
   width: $size

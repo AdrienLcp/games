@@ -1,7 +1,11 @@
 {
   "cSpell.overrides": [
     {
-      "filename": "apps/web-app/src/infrastructure/i18n/dictionaries/fr.json",
+      "filename": "apps/web-app/src/infrastructure/i18n/dictionaries/fr.ts",
+      "language": "en,fr"
+    },
+    {
+      "filename": "apps/web-app/src/infrastructure/datasource/**",
       "language": "en,fr"
     }
   ],

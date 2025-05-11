@@ -1,11 +1,21 @@
 @use '@/presentation/styles/typography'
 
-.home-page-header
+.game-page-header
+  display: grid
+  gap: var(--size-160)
   margin-inline: auto
   padding-block: var(--size-520)
 
   & h1
-    @include typography.headline-small
+    @include typography.display-large
+
+    &
+      text-align: center
+
+.game-rules
+  display: grid
+  gap: var(--size-160)
+  text-align: center
 
 main
   block-size: 100%

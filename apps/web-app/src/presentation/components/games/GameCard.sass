@@ -1,0 +1,16 @@
+@use '@/presentation/styles/interactive'
+@use '@/presentation/styles/typography'
+
+.game-card
+  @include interactive.outlined
+
+  &
+    @include typography.display-large
+
+  &
+    align-content: center
+    block-size: clamp(10rem, 8rem + 9vw, 12rem)
+    border: var(--stroke-xl) solid var(--border)
+    border-radius: var(--radius-xl)
+    inline-size: clamp(20rem, 16rem + 18vw, 25rem)
+    text-align: center
