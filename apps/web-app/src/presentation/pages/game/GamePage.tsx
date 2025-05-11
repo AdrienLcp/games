@@ -73,11 +73,9 @@ const GamePage: FC = () => {
       <header className='game-page-header'>
         <h1>{game.name}</h1>
 
-        {game.rules.length > 0 && (
-          <ul className='game-rules'>
-            {game.rules.map(rule => <li key={rule}>{rule}</li>)}
-          </ul>
-        )}
+        <p className='game-rule'>
+          {i18n('games.rule', game.requiredCorrectAnswerCount)}
+        </p>
       </header>
 
       <GamePlay game={game} />

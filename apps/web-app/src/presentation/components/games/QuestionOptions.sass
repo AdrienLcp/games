@@ -1,0 +1,26 @@
+@use '@/presentation/styles/interactive'
+@use '@/presentation/styles/typography'
+
+.question-options
+  block-size: 100%
+
+.options-list
+  align-content: center
+  display: flex
+  flex-wrap: wrap
+  gap: var(--size-480)
+  block-size: 100%
+  justify-content: center
+
+  & .option
+    @include interactive.transparent
+
+    &
+      @include typography.headline-small
+
+    &
+      align-content: center
+      block-size: clamp(7rem, 5rem + 6vw, 9rem)
+      border-radius: var(--radius-xl)
+      inline-size: clamp(16rem, 15rem + 14vw, 20rem)
+      text-align: center

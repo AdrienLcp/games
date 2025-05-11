@@ -15,7 +15,8 @@ export const fr = {
     page: {
       error: 'Une erreur est survenue lors du chargement du jeu.',
       notFound: 'Jeu introuvable'
-    }
+    },
+    rule: 'Vous devez répondre correctement à %{smart_count} question pour débloquer l\'indice. |||| Vous devez répondre correctement à %{smart_count} questions pour débloquer l\'indice.'
   },
   errors: {
     unexpectedError: 'Une erreur inattendue est survenue.'

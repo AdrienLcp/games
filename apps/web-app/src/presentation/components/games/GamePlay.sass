@@ -1,0 +1,19 @@
+@use '@/presentation/styles/typography'
+
+main
+  padding-block: clamp(5rem, 4rem + 5vw, 7rem)
+
+.question
+  @include typography.headline-large
+
+  &
+    text-align: center
+
+.score
+  @include typography.headline-large
+
+  &
+    align-content: center
+    block-size: clamp(10rem, 8rem + 9vw, 12rem)
+    padding-inline: var(--size-480)
+    text-align: end

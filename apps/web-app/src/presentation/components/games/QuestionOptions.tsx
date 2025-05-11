@@ -45,6 +45,7 @@ export const QuestionOptions: FC<QuestionOptionsProps> = ({ correctOptionId, onC
         {options.map(option => (
           <li key={option.id}>
             <Button
+              className='option'
               isDisabled={!!errorMessage}
               onPress={() => onOptionPress(option.id)}
             >
