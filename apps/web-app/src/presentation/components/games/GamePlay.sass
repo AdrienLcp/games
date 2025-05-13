@@ -1,7 +1,23 @@
+@use '@/presentation/styles/animations'
+@use '@/presentation/styles/layout'
 @use '@/presentation/styles/typography'
 
 main
   padding-block: clamp(5rem, 4rem + 5vw, 7rem)
+
+.error-message
+  @include typography.display-large
+
+  &
+    @include layout.center
+
+  &
+    @include animations.shake
+
+  &
+    color: var(--status-error-foreground)
+    font-weight: 700
+    text-align: center
 
 .question
   @include typography.headline-large
@@ -15,5 +31,7 @@ main
   &
     align-content: center
     block-size: clamp(10rem, 8rem + 9vw, 12rem)
+    color: var(--status-success-foreground)
+    font-weight: 700
     padding-inline: var(--size-480)
     text-align: end

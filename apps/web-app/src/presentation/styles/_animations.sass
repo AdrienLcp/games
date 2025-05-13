@@ -1,10 +1,14 @@
 :root
   --timing: cubic-bezier(0.4, 0, 0.2, 1)
   --transition-150: 150ms
+  --transition-250: 250ms
+  --transition-1000: 1s
 
   @media (prefers-reduced-motion: reduce)
     --timing: 0
     --transition-150: 0
+    --transition-250: 0
+    --transition-1000: 0
 
     *
       animation: none
@@ -25,8 +29,23 @@
     opacity: 1
 
 @mixin spin
-  animation: spin 1s linear infinite
+  animation: spin var(--transition-1000) linear infinite
 
 @keyframes spin
   to
     transform: rotate(360deg)
+
+@mixin shake
+  animation: shake var(--transition-250) var(--timing, ease-in-out)
+
+@keyframes shake
+  0%
+    transform: translateX(0)
+  25%
+    transform: translateX(-1rem)
+  50%
+    transform: translateX(1rem)
+  75%
+    transform: translateX(-1rem)
+  100%
+    transform: translateX(0)

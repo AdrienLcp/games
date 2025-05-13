@@ -5,18 +5,19 @@ export type QuestionOption = {
 }
 
 export type Question = {
+  correctOptionId: string
   id: string
   imageUri?: string
-  text: string
   options: QuestionOption[]
-  correctOptionId: string
+  text: string
 }
 
 export type Game = {
+  clue: string
   id: string
   imageUri?: string
   name?: string
-  slug: string
   questions: Question[]
   requiredCorrectAnswerCount: number
+  slug: string
 }

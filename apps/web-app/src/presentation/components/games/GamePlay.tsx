@@ -1,56 +1,78 @@
 import { type FC, useState } from 'react'
 
 import type { Game } from '@/domain/game'
+import { i18n } from '@/infrastructure/i18n'
 import { QuestionOptions } from '@/presentation/components'
 
 import './GamePlay.sass'
 
 type GameProps = {
   game: Game
+  onLoose: () => void
+  onWin: () => void
 }
 
-export const GamePlay: FC<GameProps> = ({ game }) => {
+const wrongAnswerDurationInMs = 2000
+
+export const GamePlay: FC<GameProps> = ({ game, onLoose, onWin }) => {
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0)
+  const [hasWrongAnswer, setHasWrongAnswer] = useState<boolean>(false)
   const [score, setScore] = useState<number>(0)
 
-  // We can use score as index & render the gift if the score is equal to the requiredCorrectAnswerCount
-  // const currentQuestion = game.questions[score] ?? null
-
-  // if (score >= game.requiredCorrectAnswerCount) {
-  //   return (
-  //     <main>
-  //       <h2>Félicitations !</h2>
-  //       <p>Vous avez débloqué l&apos;indice.</p>
-  //       <p>L&apos;indice est ...</p>
-  //     </main>
-  //   )
-  // }
-
-  // if (!currentQuestion) {
-  //   return (
-  //     <main>
-  //       <h2>Plus de question...</h2>
-  //       <p>Désolé, t&apos;es trop nul.</p>
-  //       <Button onPress={() => window.location.reload()}>Rafraichir</Button>
-  //     </main>
-  //   )
-  // }
-
+  const test = game.questions[currentQuestionIndex] ?? null
+  console.log('test', test)
   const currentQuestion = game.questions[0] ?? null
+
+  if (score >= game.requiredCorrectAnswerCount) {
+    onWin()
+    return null
+  }
+
+  if (!currentQuestion) {
+    onLoose()
+    return null
+  }
+
+  const onCorrectAnswer = () => {
+    setScore(previousScore => previousScore + 1)
+    setCurrentQuestionIndex(previousIndex => previousIndex + 1)
+  }
+
+  const onWrongAnswer = () => {
+    setHasWrongAnswer(true)
+
+    setTimeout(() => {
+      setHasWrongAnswer(false)
+      setCurrentQuestionIndex(previousIndex => previousIndex + 1)
+    }, wrongAnswerDurationInMs)
+  }
+
+  const onOptionPress = (optionId: string) => {
+    const isCorrectAnswer = optionId === currentQuestion.correctOptionId
+
+    return isCorrectAnswer
+      ? onCorrectAnswer()
+      : onWrongAnswer()
+  }
 
   return (
     <>
       <main>
         <h2 className='question'>{currentQuestion.text}</h2>
 
-        <QuestionOptions
-          correctOptionId={currentQuestion.correctOptionId}
-          options={currentQuestion.options}
-          onCorrectAnswer={() => setScore(previousScore => previousScore + 1)}
-        />
+        {hasWrongAnswer
+          ? <p className='error-message'>
+              {i18n('games.wrongAnswer')}
+            </p>
+          : <QuestionOptions
+              onOptionPress={onOptionPress}
+              options={currentQuestion.options}
+            />
+        }
       </main>
 
       <footer className='score'>
-        {score > 0 && `Score : ${score}`}
+        {score > 0 && i18n('games.score', { score })}
       </footer>
     </>
   )

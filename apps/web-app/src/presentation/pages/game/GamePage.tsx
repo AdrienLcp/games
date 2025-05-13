@@ -4,9 +4,7 @@ import { useParams } from '@/application/hooks'
 import { GameService } from '@/application/services'
 import type { Game } from '@/domain/game'
 import { i18n } from '@/infrastructure/i18n'
-import { GamePlay, Loader } from '@/presentation/components'
-
-import './GamePage.sass'
+import { GameParty, Loader } from '@/presentation/components'
 
 const DEFAULT_ERROR_MESSAGE = i18n('games.page.error')
 
@@ -68,19 +66,7 @@ const GamePage: FC = () => {
     )
   }
 
-  return (
-    <>
-      <header className='game-page-header'>
-        <h1>{game.name}</h1>
-
-        <p className='game-rule'>
-          {i18n('games.rule', game.requiredCorrectAnswerCount)}
-        </p>
-      </header>
-
-      <GamePlay game={game} />
-    </>
-  )
+  return <GameParty game={game} />
 }
 
 export default GamePage

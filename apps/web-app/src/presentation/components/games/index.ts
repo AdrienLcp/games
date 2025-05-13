@@ -1,4 +1,5 @@
 export * from './GameCard'
 export * from './GamesList'
+export * from './GameParty'
 export * from './GamePlay'
 export * from './QuestionOptions'

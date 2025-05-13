@@ -7,19 +7,29 @@ export const fr = {
       title: 'Erreur'
     }
   },
+  errors: {
+    unexpectedError: 'Une erreur inattendue est survenue.'
+  },
   games: {
     list: {
       empty: 'Aucun jeu trouvé',
       error: 'Une erreur est survenue lors du chargement des jeux.'
     },
+    loose: {
+      retry: 'Réessayer',
+      title: 'Vous avez perdu !'
+    },
     page: {
       error: 'Une erreur est survenue lors du chargement du jeu.',
       notFound: 'Jeu introuvable'
     },
-    rule: 'Vous devez répondre correctement à %{smart_count} question pour débloquer l\'indice. |||| Vous devez répondre correctement à %{smart_count} questions pour débloquer l\'indice.'
-  },
-  errors: {
-    unexpectedError: 'Une erreur inattendue est survenue.'
+    score: 'Score : %{score}',
+    rule: 'Vous devez répondre correctement à %{smart_count} question pour débloquer l\'indice. |||| Vous devez répondre correctement à %{smart_count} questions pour débloquer l\'indice.',
+    win: {
+      clue: 'Vous avez débloqué l\'indice suivant :',
+      congrats: 'Félicitations !'
+    },
+    wrongAnswer: 'Mauvaise réponse !'
   },
   pages: {
     notFound: {

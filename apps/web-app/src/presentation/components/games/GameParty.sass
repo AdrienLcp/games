@@ -1,22 +1,32 @@
+@use '@/presentation/styles/layout'
 @use '@/presentation/styles/typography'
 
-.game-page-header
+.game-party-header
   display: grid
   gap: var(--size-160)
   margin-inline: auto
   padding-block: var(--size-520)
+  text-align: center
 
   & h1
     @include typography.title-large
-
-    &
-      text-align: center
-
-.game-rule
-  text-align: center
 
 main
   block-size: 100%
   margin-inline: auto
   inline-size: min(95%, 100rem)
   padding-block-end: clamp(10rem, 8rem + 9vw, 12rem)
+  text-align: center
+
+  & .win-message
+    @include typography.headline-large
+
+  & .clue
+    @include typography.display-large
+
+    &
+      @include layout.center
+
+    &
+      color: var(--status-gold-foreground)
+
