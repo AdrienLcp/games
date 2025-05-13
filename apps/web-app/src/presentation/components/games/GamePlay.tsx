@@ -19,8 +19,8 @@ export const GamePlay: FC<GameProps> = ({ game, onLoose, onWin }) => {
   const [hasWrongAnswer, setHasWrongAnswer] = useState<boolean>(false)
   const [score, setScore] = useState<number>(0)
 
-  const test = game.questions[currentQuestionIndex] ?? null
-  console.log('test', test)
+  // const currentQuestion = game.questions[currentQuestionIndex] ?? null
+  console.log('currentQuestionIndex', currentQuestionIndex)
   const currentQuestion = game.questions[0] ?? null
 
   if (score >= game.requiredCorrectAnswerCount) {

@@ -11,12 +11,31 @@
   & h1
     @include typography.title-large
 
+.game-over
+  display: grid
+  gap: var(--size-320)
+
+  & h1
+    @include typography.headline-large
+    
+    &
+      color: var(--status-error-foreground)
+      font-weight: 700
+
+  &-buttons
+    align-items: center
+    display: flex
+    gap: var(--size-160)
+
 main
-  block-size: 100%
-  margin-inline: auto
-  inline-size: min(95%, 100rem)
-  padding-block-end: clamp(10rem, 8rem + 9vw, 12rem)
-  text-align: center
+  @include layout.center
+
+  &
+    block-size: 100%
+    margin-inline: auto
+    inline-size: min(95%, 100rem)
+    padding-block-end: clamp(10rem, 8rem + 9vw, 12rem)
+    text-align: center
 
   & .win-message
     @include typography.headline-large
@@ -29,4 +48,8 @@ main
 
     &
       color: var(--status-gold-foreground)
+
+.win-footer
+  justify-items: end
+  padding: var(--size-160)
 

@@ -11,6 +11,7 @@ export const fr = {
     unexpectedError: 'Une erreur inattendue est survenue.'
   },
   games: {
+    goBack: 'Accueil',
     list: {
       empty: 'Aucun jeu trouvé',
       error: 'Une erreur est survenue lors du chargement des jeux.'
